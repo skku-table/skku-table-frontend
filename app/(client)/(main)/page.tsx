@@ -4,6 +4,7 @@ import Image from "next/image";
 import LikeButton from "@/components/LikeButton";
 import { IoHeartSharp } from "react-icons/io5";
 import { useState } from "react";
+import Link from "next/link";
 
 
 const mockFestivals = [
@@ -68,20 +69,37 @@ export default function Page() {
       <div className="flex flex-col items-center gap-6">
         {festivals.map((festival) => (
           <div key={festival.festivalId}>
-            <div className="relative w-[290px] h-[290px] mx-auto">
+            {/* <div className="relative w-[290px] h-[290px] mx-auto">
+            <Link href={`/festival/${festival.festivalId}`}>
               <Image
                 src="/tmp/skku_festival2.png" // 이거 축제 이미지 불러오는 건 나중에 따로 구현
                 alt="festival poster"
                 fill
                 className="rounded-xl object-cover"
               />
+              </div>
+              </Link>  
               <LikeButton
                 initialLiked={festival.liked}
                 size={25}
                 onClick={() => toggleLike(festival.festivalId)}
-              />
+              /> */}
+              <div className="relative w-[290px] h-[290px] mx-auto">
+                <Link href={`/festival/${festival.festivalId}`}>
+                  <Image
+                    src="/tmp/skku_festival2.png"
+                    alt="festival poster"
+                    fill
+                    className="rounded-xl object-cover cursor-pointer"
+                  />
+                </Link>
+                <LikeButton
+                  initialLiked={festival.liked}
+                  size={25}
+                  onClick={() => toggleLike(festival.festivalId)}
+                />
+              </div>
 
-            </div>
             <div className="mt-2">
               <p className="text-lg font-bold">{festival.name}</p>
               <p className="text-lg">
