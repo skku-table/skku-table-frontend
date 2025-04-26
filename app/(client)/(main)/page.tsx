@@ -60,7 +60,7 @@ export default function Page() {
   };
 
   return (
-      <main className="pt-[72px] p-4">
+    <main className="pt-[72px] p-4">
       {/* <h1 className="text-xl font-extrabold mb-4 sticky top-0 bg-white z-10 py-3">진행 중인 축제</h1> */}
       <h1 className="text-xl font-extrabold fixed top-0 left-0 w-full bg-white z-50 pl-5 py-4">
         Current Festivals
