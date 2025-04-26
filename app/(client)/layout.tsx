@@ -6,7 +6,7 @@ import { ReactNode } from "react";
 export default function ClientLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex flex-col min-h-screen relative">
-      <main className="flex-grow">{children}</main>
+      <main className="flex-grow mb-16">{children}</main>
 
       {/* 하단 네비게이션 */}
       <nav className="h-16 bottom-0 w-full bg-white flex justify-around items-center shadow-2xl fixed">
