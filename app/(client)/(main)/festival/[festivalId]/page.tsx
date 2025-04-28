@@ -1,7 +1,6 @@
 // app/(client)/(main)/[festivalId]/page.tsx
 
-import Link from 'next/link'
-import BackButton from '@/components/backButton'
+import Header from "@/components/Headers";
 
 type Props = {
     params: {
@@ -56,10 +55,7 @@ export default function FestivalDetailPage({ params }: Props) {
 
     return (
         <>
-            <div className="text-lg font-bold bg-white w-full h-14 z-10 fixed">
-                <BackButton/>
-                {festival.name}
-            </div>
+            <Header isBackButton={true} title={festival.name}/>
             <div className="relative p-4 pt-16 space-y-6">
                 {/* 뒤로가기 & 제목 */}
                 
