@@ -1,0 +1,28 @@
+name: CD - Deploy to Oracle Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: SSH Deploy to Oracle
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: stage.skkutable.com
+          username: ubuntu
+          key: ${{ secrets.Oracle_Stage_SSH_KEY }}
+
+          script: |
+            cd ~/apps/frontend
+            git pull origin main
+            pnpm install
+            pnpm build
+            pm2 restart prod-app
