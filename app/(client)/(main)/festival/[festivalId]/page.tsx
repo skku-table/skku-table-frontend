@@ -41,8 +41,9 @@ const mockFestivalDetail = {
 };
 
 export default function FestivalDetailPage({ params }: Props) {
-    const {festivalId}=params;
-    let festival;
+
+    //const {festivalId}=params;
+    //let festival;
     // try {
     //     const res= await fetch(`${process.env.NEXT_PUBLIC_API_URL}/festivals/${festivalId}`);
     //     if (!res.ok) throw new Error('api error');
@@ -51,7 +52,7 @@ export default function FestivalDetailPage({ params }: Props) {
     // }catch (err) {
     //     festival = mockFestivalDetail;
     // }
-    festival = mockFestivalDetail;
+    const festival = mockFestivalDetail;
 
     return (
         <>
