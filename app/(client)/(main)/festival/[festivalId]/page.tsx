@@ -82,14 +82,33 @@ export default function FestivalDetailPage({ params }: Props) {
                 <div>
                     <h3 className="font-semibold mb-2">부스</h3>
                     <div className="flex space-x-3 overflow-x-auto">
-                    {festival.booths.map((booth: Boothtype) => (
+                    
+                    {/* {festival.booths.map((booth: Boothtype) => (
                         <img
                         key={booth.boothId}
                         src={booth.posterImageUrl}
                         alt={`부스 ${booth.boothId}`}
                         className="w-32 h-32 object-cover rounded"
                         />
+                    ))} */}
+                    {/* 부스 상세 페이지로 이동 */}
+                    {festival.booths.map((booth: Boothtype) => (
+                    <Link
+                        key={booth.boothId}
+                        href={`/festival/${festival.festivalId}/booth/${booth.boothId}`}
+                    >
+                        <img
+                        src={booth.posterImageUrl}
+                        alt={`부스 ${booth.boothId}`}
+                        className="w-32 h-32 object-cover rounded cursor-pointer"
+                        />
+                    </Link>
                     ))}
+
+
+
+
+
                     </div>
                 </div>
 
