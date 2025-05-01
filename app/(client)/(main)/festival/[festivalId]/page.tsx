@@ -23,7 +23,7 @@ const mockFestivalDetail = {
     endDate: "2025-05-16",
     location: "율전 캠퍼스",
     description: "율전대동제",
-    LikeCount: 40,
+    likeCount: 40,
     booths: [
         {
         boothId: 101,
