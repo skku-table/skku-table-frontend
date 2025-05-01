@@ -3,19 +3,12 @@
 import { IoHeart } from 'react-icons/io5';
 import Image from 'next/image';
 import Header from '@/components/Headers';
-import Link from 'next/link';
 import { useState } from 'react';
 import LikeButton from '@/components/LikeButton';
 
-type Props = {
-  params: {
-    festivalId: string;
-    boothId: string;
-  };
-};
 
 const mockBoothDetail = {
-  pubId: 1,
+  boothId: 1,
   festivalId: 1,
   name: '다같이 추억 솦으로',
   host: '소프트웨어학과',
@@ -33,13 +26,13 @@ const mockBoothDetail = {
 //날짜 포멧 함수
 function formatDateRange(start: string, end: string): string {
   const format = (dateStr: string) => {
-    const [year, month, day] = dateStr.split('-');
+    const [, month, day] = dateStr.split('-');
     return `${Number(month)}.${Number(day)}`; 
   };
   return `${format(start)} - ${format(end)}`;
 }
 
-export default function BoothDetailPage({ params }: Props) {
+export default function BoothDetailPage() {
   const booth = mockBoothDetail;
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(booth.likeCount);

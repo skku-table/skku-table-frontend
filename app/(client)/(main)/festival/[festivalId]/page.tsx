@@ -3,11 +3,11 @@
 import Header from "@/components/Headers";
 import Link from "next/link";
 
-type Props = {
-    params: {
-        festivalId: string;
-    };
-};
+// type Props = {
+//     params: {
+//         festivalId: string;
+//     };
+// };
 
 type Boothtype= {
     boothId:number;
@@ -41,9 +41,8 @@ const mockFestivalDetail = {
     mapImageUrl: "/festivalmap.png",
 };
 
-export default function FestivalDetailPage({ params }: Props) {
-    const {festivalId}=params;
-    let festival;
+export default function FestivalDetailPage() {
+
     // try {
     //     const res= await fetch(`${process.env.NEXT_PUBLIC_API_URL}/festivals/${festivalId}`);
     //     if (!res.ok) throw new Error('api error');
@@ -52,7 +51,7 @@ export default function FestivalDetailPage({ params }: Props) {
     // }catch (err) {
     //     festival = mockFestivalDetail;
     // }
-    festival = mockFestivalDetail;
+    const festival = mockFestivalDetail;
 
     return (
         <>
