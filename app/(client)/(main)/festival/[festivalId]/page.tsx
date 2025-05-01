@@ -43,6 +43,9 @@ const mockFestivalDetail = {
 
 export default function FestivalDetailPage() {
 
+    //const {festivalId}=params;
+    //let festival;
+
     // try {
     //     const res= await fetch(`${process.env.NEXT_PUBLIC_API_URL}/festivals/${festivalId}`);
     //     if (!res.ok) throw new Error('api error');
