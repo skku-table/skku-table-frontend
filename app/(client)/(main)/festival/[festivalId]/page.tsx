@@ -1,6 +1,7 @@
 // app/(client)/(main)/[festivalId]/page.tsx
 
 import Header from "@/components/Headers";
+import Link from "next/link";
 
 // type Props = {
 //     params: {
@@ -41,8 +42,10 @@ const mockFestivalDetail = {
 };
 
 export default function FestivalDetailPage() {
+
     //const {festivalId}=params;
     //let festival;
+
     // try {
     //     const res= await fetch(`${process.env.NEXT_PUBLIC_API_URL}/festivals/${festivalId}`);
     //     if (!res.ok) throw new Error('api error');
@@ -79,12 +82,24 @@ export default function FestivalDetailPage() {
                     <h3 className="font-semibold mb-2">부스</h3>
                     <div className="flex space-x-3 overflow-x-auto">
                     {festival.booths.map((booth: Boothtype) => (
-                        <img
+
+                        // 부스 클릭하면 부스 페이지로 넘어가도록 링크 추가
+                        <Link
                         key={booth.boothId}
-                        src={booth.posterImageUrl}
-                        alt={`부스 ${booth.boothId}`}
-                        className="w-32 h-32 object-cover rounded"
+                        href={`/festival/${festival.festivalId}/booth/${booth.boothId}`}
+                      >
+                        <img
+                          src={booth.posterImageUrl}
+                          alt={`부스 ${booth.boothId}`}
+                          className="w-32 h-32 object-cover rounded cursor-pointer"
                         />
+                      </Link>
+                        // <img
+                        // key={booth.boothId}
+                        // src={booth.posterImageUrl}
+                        // alt={`부스 ${booth.boothId}`}
+                        // className="w-32 h-32 object-cover rounded"
+                        // />
                     ))}
                     </div>
                 </div>
