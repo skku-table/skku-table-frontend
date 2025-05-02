@@ -12,6 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.ORACLE_STAGE_SSH_KEY  }}
+
       - name: Deploy to Oracle Server using SSH
         run: |
           # SSH로 서버에 접속하여 디렉터리 생성
