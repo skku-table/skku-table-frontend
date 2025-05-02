@@ -1,3 +1,4 @@
-stage.skkutable.com {
+skkutable.com {
   reverse_proxy nextjs:3000
+  tls rbstj0311@naver.com
 }
