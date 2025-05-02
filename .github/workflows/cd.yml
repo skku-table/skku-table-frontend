@@ -12,26 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: SSH into Oracle and deploy
-        uses: appleboy/ssh-action@v0.1.7
-        with:
-          host: stage.skkutable.com
-          username: ubuntu
-          key: ${{ secrets.ORACLE_STAGE_SSH_KEY }}
-          script: |
-            # 디렉토리 없으면 생성
-            mkdir -p ~/apps
+      - name: Deploy to Oracle Server using SSH
+        run: |
+          # SSH로 서버에 접속하여 디렉터리 생성
+          ssh -o StrictHostKeyChecking=no ubuntu@stage.skkutable.com "cd ~; sudo rm -rf skku-table-frontend; git clone https://github.com/skku-table/skku-table-frontend.git"
 
-            cd ~/apps
-
-            # 레포 없으면 clone, 있으면 pull
-            if [ ! -d "frontend" ]; then
-              git clone git@github.com:skku-table/skku-table-frontend.git frontend
-            else
-              cd frontend
-              git pull origin main
-            fi
-
-            cd ~/apps/frontend
-            docker compose pull
-            docker compose up -d
+          # Docker Compose로 애플리케이션 실행
+          ssh -o StrictHostKeyChecking=no ubuntu@stage.skkutable.com "cd ~/skku-table-frontend && docker compose pull && docker compose up -d"
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.ORACLE_STAGE_SSH_KEY }}
