@@ -1,0 +1,4 @@
+localhost {
+  reverse_proxy nextjs:3000
+  tls internal
+}

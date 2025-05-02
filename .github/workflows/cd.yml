@@ -33,6 +33,5 @@ jobs:
             fi
 
             cd ~/apps/frontend
-            pnpm install
-            pnpm build
-            pm2 restart stage-app || pm2 start "pnpm start" --name stage-app
+            docker compose pull
+            docker compose up -d
