@@ -20,7 +20,7 @@ jobs:
       - name: Deploy to Oracle Server using SSH
         run: |
           # SSH로 서버에 접속하여 디렉터리 생성
-          ssh -o StrictHostKeyChecking=no ubuntu@stage.skkutable.com "cd ~; sudo rm -rf skku-table-frontend; git clone https://github.com/skku-table/skku-table-frontend.git"
+          ssh -o StrictHostKeyChecking=no ubuntu@stage.skkutable.com "cd ~/skku-table-frontend; docker compose down; cd ~; sudo rm -rf skku-table-frontend; git clone https://github.com/skku-table/skku-table-frontend.git"
 
           # Docker Compose로 애플리케이션 실행
           ssh -o StrictHostKeyChecking=no ubuntu@stage.skkutable.com "cd ~/skku-table-frontend && docker compose pull && docker compose up -d"
